@@ -5,6 +5,15 @@ export default new (class UserServis {
     const users = await prisma.user.findMany();
     return users;
   }
+  async GetUserById(id) {
+    console.log("first", id);
+    const user = await prisma.user.findFirst({
+      where: {
+        id: id,
+      },
+    });
+    return user;
+  }
 
   async GetUserByArticle(membership) {
     console.log("membership", membership);

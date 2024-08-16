@@ -130,8 +130,6 @@ export default new (class MemberController {
       if (chkVideo.movieId.includes(idVideo)) {
         throw Error("Video already added");
       }
-      // console.log("idVideo", idVideo);
-      // console.log("idVideo", getUser);
 
       const response = await prisma.user.update({
         where: {
@@ -146,13 +144,13 @@ export default new (class MemberController {
       // console.log("response", response);
       // console.log("getMember", getMember);
 
-      if (response.videoId?.length >= getMember.limitVideo) {
+      if (response.movieId?.length >= getMember.limitVideo) {
         const updateStatus = await prisma.user.update({
           where: {
             id: user.id,
           },
           data: {
-            accessVideo: false,
+            acceessVideo: false,
           },
         });
       }

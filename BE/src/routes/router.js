@@ -51,7 +51,7 @@ router.get(
   authMiddleware.authorization,
   userController.getUserByAricle
 );
-
+router.get("/userId", authMiddleware.authorization, userController.getUserId);
 router.get(
   "/userVidio",
   authMiddleware.authorization,
